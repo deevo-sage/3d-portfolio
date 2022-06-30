@@ -9,7 +9,6 @@ import {
 import { OrbitControls } from "@react-three/drei";
 import monitor1 from "../objs/monitorframe3.glb";
 import table from "../objs/table.glb";
-
 import { GLTFLoader } from "three-stdlib";
 import * as THREE from "three";
 import { MonitorScreen, MonitorScreenTop } from "./MonitorScreens";
@@ -69,12 +68,16 @@ const Setup = () => {
       setscrolled(window.scrollY / 150);
     });
   }, []);
+  // useEffect(() => {
+  //   let x =
+  //     scrolled < 7 ? Math.max(scrolled, 0.3) : Math.max(7 - (scrolled - 7), 4);
+  //   camera.lookAt(2 - x / 2, 0, 2 - x / 2);
+  //   camera.position.set(x, 0, 0);
+  // }, [scrolled, camera]);
   useEffect(() => {
-    let x =
-      scrolled < 7 ? Math.max(scrolled, 0.3) : Math.max(7 - (scrolled - 7), 4);
-    camera.lookAt(2 - x / 2, 0, 2 - x / 2);
-    camera.position.set(x, 0, 0);
-  }, [scrolled, camera]);
+    camera.lookAt(look.x, look.y, look.z);
+    camera.position.set(3, 0, 0);
+  }, [look]);
   useEffect(() => {
     camera.lookAt(2, 0, 2);
     if (screensize.width > 600) {

@@ -10,7 +10,7 @@ function App() {
     <ChakraProvider>
       <div className="App">
         <Canvasbase />
-        <Content />
+        {/* <Content /> */}
       </div>
     </ChakraProvider>
   );
