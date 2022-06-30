@@ -67,6 +67,7 @@ const Setup = () => {
     window.addEventListener("scroll", ({}) => {
       setscrolled(window.scrollY / 150);
     });
+    camera.position.set(3, 0, 0);
   }, []);
   // useEffect(() => {
   //   let x =
@@ -74,10 +75,9 @@ const Setup = () => {
   //   camera.lookAt(2 - x / 2, 0, 2 - x / 2);
   //   camera.position.set(x, 0, 0);
   // }, [scrolled, camera]);
-  useEffect(() => {
+  useFrame(() => {
     camera.lookAt(look.x, look.y, look.z);
-    camera.position.set(3, 0, 0);
-  }, [look]);
+  });
   useEffect(() => {
     camera.lookAt(2, 0, 2);
     if (screensize.width > 600) {
